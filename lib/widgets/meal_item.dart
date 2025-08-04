@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:foods_app/core/constants.dart';
 import '../models/food_item.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MealItem extends StatelessWidget {
   final FoodItem meal;
@@ -40,7 +42,7 @@ class MealItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return InkWell(
+    return GestureDetector(
       onTap: () => selectMeal(context),
       child: Card(
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
@@ -56,19 +58,26 @@ class MealItem extends StatelessWidget {
                       topRight: Radius.circular(15),
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15)),
-                  child: Image.network(
-                    meal.imageUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: meal.imageUrl,
                     height: 250,
                     width: double.infinity,
                     fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        height: 250,
-                        width: double.infinity,
-                        color: Colors.grey[300],
-                        child: const Icon(Icons.image_not_supported, size: 50),
-                      );
-                    },
+                    placeholder: (context, url) => Container(
+                      height: 250,
+                      width: double.infinity,
+                      color: Colors.grey[200],
+                      child: Center(
+                          child: CircularProgressIndicator(
+                        color: Constants.brown,
+                      )),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      height: 250,
+                      width: double.infinity,
+                      color: Colors.grey[300],
+                      child: const Icon(Icons.image_not_supported, size: 50),
+                    ),
                   ),
                 ),
                 Positioned(

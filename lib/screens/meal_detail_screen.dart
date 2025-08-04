@@ -3,6 +3,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:foods_app/core/constants.dart';
 import 'package:foods_app/providers/favorite_provider.dart';
 import '../providers/food_items_provider.dart';
+import 'package:cached_network_image/cached_network_image.dart';
 
 class MealDetailScreen extends ConsumerWidget {
   const MealDetailScreen({super.key});
@@ -72,15 +73,18 @@ class MealDetailScreen extends ConsumerWidget {
                 SizedBox(
                   height: 300,
                   width: double.infinity,
-                  child: Image.network(
-                    selectedMeal.imageUrl,
+                  child: CachedNetworkImage(
+                    imageUrl: selectedMeal.imageUrl,
                     fit: BoxFit.cover,
-                    errorBuilder: (context, error, stackTrace) {
-                      return Container(
-                        color: Colors.grey[300],
-                        child: const Icon(Icons.image_not_supported, size: 50),
-                      );
-                    },
+                    placeholder: (context, url) => Center(
+                      child: CircularProgressIndicator(
+                        color: Constants.brown,
+                      ),
+                    ),
+                    errorWidget: (context, url, error) => Container(
+                      color: Colors.grey[300],
+                      child: const Icon(Icons.image_not_supported, size: 50),
+                    ),
                   ),
                 ),
                 buildSectionTitle(context, 'Ingredients'),

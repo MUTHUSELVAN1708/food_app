@@ -7,9 +7,8 @@ import '../models/food_item.dart';
 class ApiService {
   static Future<List<Category>> fetchCategories() async {
     try {
-      // Load from assets
       final String response =
-          await rootBundle.loadString('assets/data/categories_1.json');
+      await rootBundle.loadString('assets/data/categories_1.json');
       final List<dynamic> data = json.decode(response)['availableCategories'];
       return data.map((item) => Category.fromJson(item)).toList();
     } catch (error) {
@@ -21,7 +20,7 @@ class ApiService {
   static Future<List<FoodItem>> fetchFoods() async {
     try {
       final String response =
-          await rootBundle.loadString('assets/data/categories_1.json');
+      await rootBundle.loadString('assets/data/categories_1.json');
       final List<dynamic> data = json.decode(response)['dummyMeals'];
       return data.map((item) => FoodItem.fromJson(item)).toList();
     } catch (error) {
@@ -94,7 +93,7 @@ class ApiService {
         affordability: Affordability.affordable,
         complexity: Complexity.simple,
         imageUrl:
-            'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Carbonara.jpg/800px-Spaghetti_Carbonara.jpg',
+        'https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Spaghetti_Carbonara.jpg/800px-Spaghetti_Carbonara.jpg',
         duration: 20,
         ingredients: [
           '4 Tomatoes',
@@ -125,7 +124,7 @@ class ApiService {
         affordability: Affordability.affordable,
         complexity: Complexity.simple,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/07/11/21/51/toast-3532016_1280.jpg',
         duration: 10,
         ingredients: [
           '1 Slice White Bread',
@@ -151,7 +150,7 @@ class ApiService {
         affordability: Affordability.pricey,
         complexity: Complexity.simple,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
+        'https://cdn.pixabay.com/photo/2014/10/23/18/05/burger-500054_1280.jpg',
         duration: 45,
         ingredients: [
           '300g Cattle Hack',
@@ -180,7 +179,7 @@ class ApiService {
         affordability: Affordability.luxurious,
         complexity: Complexity.challenging,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/03/31/19/29/schnitzel-3279045_1280.jpg',
         duration: 60,
         ingredients: [
           '8 Veal Cutlets',
@@ -213,7 +212,7 @@ class ApiService {
         affordability: Affordability.luxurious,
         complexity: Complexity.simple,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
+        'https://cdn.pixabay.com/photo/2016/10/25/13/29/smoked-salmon-salad-1768890_1280.jpg',
         duration: 15,
         ingredients: [
           'Arugula',
@@ -245,7 +244,7 @@ class ApiService {
         affordability: Affordability.affordable,
         complexity: Complexity.hard,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
+        'https://cdn.pixabay.com/photo/2017/05/01/05/18/pastry-2274750_1280.jpg',
         duration: 240,
         ingredients: [
           '4 Sheets of Gelatine',
@@ -278,7 +277,7 @@ class ApiService {
         affordability: Affordability.affordable,
         complexity: Complexity.simple,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/07/10/21/23/pancake-3529653_1280.jpg',
         duration: 20,
         ingredients: [
           '1 1/2 Cups all-purpose Flour',
@@ -307,7 +306,7 @@ class ApiService {
         affordability: Affordability.pricey,
         complexity: Complexity.challenging,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/06/18/16/05/indian-food-3482749_1280.jpg',
         duration: 35,
         ingredients: [
           '4 Chicken Breasts',
@@ -338,7 +337,7 @@ class ApiService {
         affordability: Affordability.affordable,
         complexity: Complexity.hard,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
+        'https://cdn.pixabay.com/photo/2014/08/07/21/07/souffle-412785_1280.jpg',
         duration: 45,
         ingredients: [
           '1 Teaspoon melted Butter',
@@ -385,7 +384,7 @@ class ApiService {
         affordability: Affordability.luxurious,
         complexity: Complexity.simple,
         imageUrl:
-            'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
+        'https://cdn.pixabay.com/photo/2018/04/09/18/26/asparagus-3304997_1280.jpg',
         duration: 30,
         ingredients: [
           'White and Green Asparagus',
